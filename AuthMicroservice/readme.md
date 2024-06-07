@@ -4,7 +4,7 @@
 
 ### Регистрация
 
-URL: `../register`
+URL: **POST** `../register`
 
 Body:
 ```json
@@ -24,7 +24,7 @@ Responses:
 
 ### Авторизация
 
-URL: `../login`
+URL: **POST** `../login`
 
 Body:
 ```json
@@ -42,7 +42,7 @@ Responses:
 
 ### Получение информации о пользователе
 
-URL: `../user`
+URL: **GET** `../user`
 
 Body: `-`
 
@@ -70,7 +70,7 @@ Responses:
 
 ### Добавление новой станции
 
-URL: `../tickets/add-station`
+URL: **POST** `../tickets/add-station`
 
 Body:
 ```json
@@ -88,7 +88,7 @@ Responses:
 
 ### Покупка билета
 
-URL: `../tickets/add-station`
+URL: **POST** `../tickets/add-station`
 
 Body:
 ```json
@@ -110,7 +110,7 @@ Responses:
 
 ### Получение информации о заказе
 
-URL: `../tickets/get-order?orderId={orderId}`
+URL: **GET** `../tickets/get-order?orderId={orderId}`
 
 Body: `-`
 
@@ -137,7 +137,7 @@ Responses:
 
 ### Получение информации о всех заказах пользователя
 
-URL: `../tickets/get-orders`
+URL: **GET** `../tickets/get-orders`
 
 Body: `-`
 
