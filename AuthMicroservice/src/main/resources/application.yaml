@@ -1,0 +1,13 @@
+regex:
+  email: ^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$
+  password: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$
+
+spring:
+  application:
+    name: AuthMicroservice
+  datasource:
+    url: jdbc:postgresql://localhost:15432/postgres
+    username: postgres
+    password: postgres
+  liquibase:
+    change-log: classpath:/db/changelog/db.master.yaml
