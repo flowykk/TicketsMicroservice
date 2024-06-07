@@ -3,12 +3,10 @@ package hse.kpo.authorizationservice.service
 import hse.kpo.authorizationservice.dtos.BuyTicketDTO
 import hse.kpo.authorizationservice.dtos.StationDTO
 import hse.kpo.authorizationservice.models.Order
-import hse.kpo.authorizationservice.models.Session
 import hse.kpo.authorizationservice.models.Station
 import hse.kpo.authorizationservice.repository.OrderRepository
 import hse.kpo.authorizationservice.repository.SessionRepository
 import hse.kpo.authorizationservice.repository.StationRepository
-import hse.kpo.authorizationservice.repository.UserRepository
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -28,7 +26,7 @@ class TicketService(
     private val sessionRepository: SessionRepository
 ) {
     @Transactional
-    fun buy(@RequestBody body: BuyTicketDTO, @CookieValue jwt: String?) : ResponseEntity<Any> {
+    fun buy(@RequestBody body: BuyTicketDTO, @CookieValue jwt: String?) : HttpEntity<String> {
         if (jwt == null)
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("unauthenticated")
 
@@ -37,17 +35,22 @@ class TicketService(
         if (session.getExpires() == null || session.getExpires()!! < Timestamp.from(Instant.now()))
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User's session got expired")
 
-        val order = Order(
-            user_id = session.getUserId(),
-            from_station_id = 1,
-            to_station_id = 1,
-            status = "created",
-            created = Timestamp.from(Instant.now())
+        val fromStationId = stationRepository.findByStation(body.from_station)?.id ?:
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("FromStation not found")
+        val toStationId = stationRepository.findByStation(body.to_station)?.id ?:
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ToStation not found")
+
+        orderRepository.save(
+            Order(
+                userId = session.getUserId(),
+                from_station_id = fromStationId,
+                to_station_id = toStationId,
+                status = 1,
+                created = Timestamp.from(Instant.now())
+            )
         )
 
-        orderRepository.save(order)
-
-        return ResponseEntity.status(HttpStatus.OK).body(order)
+        return ResponseEntity.status(HttpStatus.OK).body("Your order was created successfully!")
     }
 
     @Transactional
@@ -68,5 +71,20 @@ class TicketService(
         )
 
         return ResponseEntity.status(HttpStatus.OK).body("Station added successfully")
+    }
+
+    @Transactional
+    fun getOrders(@CookieValue jwt: String?) : ResponseEntity<Any> {
+        if (jwt == null)
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("unauthenticated")
+
+        val session = sessionRepository.findByToken(jwt) ?:
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User's session not found")
+        if (session.getExpires() == null || session.getExpires()!! < Timestamp.from(Instant.now()))
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User's session got expired")
+
+        val orders = orderRepository.findByUserId(session.getUserId())
+
+        return ResponseEntity.status(HttpStatus.OK).body(orders)
     }
 }

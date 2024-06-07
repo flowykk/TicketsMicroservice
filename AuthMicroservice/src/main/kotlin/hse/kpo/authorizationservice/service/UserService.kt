@@ -39,21 +39,16 @@ class UserService(
 
     @Transactional
     fun registerUser(@RequestBody body: RegisterDTO) : HttpEntity<String> {
-        if (userRepository.findByEmail(body.email) != null) {
+        if (userRepository.findByEmail(body.email) != null)
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("This email is already taken")
+
+        if (!validationService.isValidEmail(body.email))
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("This email address is invalid")
+
+        if (!validationService.isValidPassword(body.password)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body("The password must be at least eight characters long, including uppercase and lowercase letters, digits, and special characters")
         }
-
-//        if (!validationService.isValidEmail(userProfile.getEmail())) {
-//            return ResponseEntity
-//                .status(HttpStatus.BAD_REQUEST)
-//                .body("This email address is invalid")
-//        }
-
-//        if (!validationService.isValidPassword(userProfile.password)) {
-//            return ResponseEntity
-//                .status(HttpStatus.BAD_REQUEST)
-//                .body("This password is invalid")
-//        }
 
         userRepository.save(
             User(
@@ -98,12 +93,12 @@ class UserService(
 
         response.addCookie(cookie)
 
-        return ResponseEntity.status(HttpStatus.OK).body("success")
+        return ResponseEntity.status(HttpStatus.OK).body("User authenticated successfully")
     }
 
     @Transactional
     fun getUser(jwt: String?) : ResponseEntity<Any> {
-        val user = fetchUserData(jwt) ?: return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("unauthenticated")
+        val user = fetchUserData(jwt) ?: return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Unauthenticated")
 
         return ResponseEntity.status(HttpStatus.OK).body(user)
     }
