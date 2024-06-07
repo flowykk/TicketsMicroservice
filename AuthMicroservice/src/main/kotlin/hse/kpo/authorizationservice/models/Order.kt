@@ -1,24 +1,25 @@
 package hse.kpo.authorizationservice.models
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 import java.sql.Timestamp
 
-@Table("sessions")
-class Session (
+@Table("orders")
+class Order (
     @Id
     @Column("id")
     val id: Int? = null,
     @Column("user_id")
     private val user_id: Int? = null,
-    @Column("token")
-    private val token: String,
-    @Column("expires") @JsonIgnore
-    private val expires: Timestamp? = null,
+    @Column("from_station_id")
+    private val from_station_id: Int,
+    @Column("to_station_id")
+    private val to_station_id: Int,
+    @Column("status")
+    private val status: String,
+    @Column("created")
+    private val created: Timestamp
 ) {
-    fun getUserId(): Int? = user_id
-    fun getToken(): String = token
-    fun getExpires(): Timestamp? = expires
+
 }

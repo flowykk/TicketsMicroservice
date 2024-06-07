@@ -29,7 +29,6 @@ import kotlin.io.encoding.ExperimentalEncodingApi
 
 @Service
 @ExperimentalEncodingApi
-@RequestMapping("api")
 class UserService(
     private val passwordEncoder: PasswordEncoder,
     private val userRepository: UserRepository,
@@ -78,11 +77,11 @@ class UserService(
         }
 
         val issuer = user.id.toString()
-        val expires = System.currentTimeMillis() + 60 * 24 * 1000 // 1 день
+        val expires = Timestamp(System.currentTimeMillis() + 60 * 24 * 1000) // 1 день
 
         val jwt = Jwts.builder()
             .setIssuer(issuer)
-            .setExpiration(Date(expires))
+            .setExpiration(expires)
             .signWith(Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret)), SignatureAlgorithm.HS256)
             .compact()
 
@@ -93,7 +92,7 @@ class UserService(
             Session(
                 user_id = user.id,
                 token = jwt,
-                expires = Timestamp.from(Instant.now())
+                expires = expires
             )
         )
 
@@ -104,9 +103,25 @@ class UserService(
 
     @Transactional
     fun getUser(jwt: String?) : ResponseEntity<Any> {
+        val user = fetchUserData(jwt) ?: return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("unauthenticated")
+
+        return ResponseEntity.status(HttpStatus.OK).body(user)
+    }
+
+    @Transactional
+    fun userLogout(response: HttpServletResponse) : ResponseEntity<Any> {
+        val cookie = Cookie("jwt", "")
+        cookie.maxAge = 0
+
+        response.addCookie(cookie)
+
+        return ResponseEntity.status(HttpStatus.OK).body("success")
+    }
+
+    fun fetchUserData(jwt: String?) : User? {
         try {
             if (jwt == null) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("unauthenticated")
+                return null
             }
 
             val body = Jwts.parserBuilder()
@@ -115,19 +130,9 @@ class UserService(
                 .parseClaimsJws(jwt)
                 .body
 
-            return ResponseEntity.status(HttpStatus.OK).body(this.userRepository.getById(body.issuer.toInt()))
+            return this.userRepository.getById(body.issuer.toInt())
         } catch (e: Exception) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("unauthenticated")
+            return null
         }
-    }
-
-    @Transactional
-    fun userLogout(response: HttpServletResponse): ResponseEntity<Any> {
-        val cookie = Cookie("jwt", "")
-        cookie.maxAge = 0
-
-        response.addCookie(cookie)
-
-        return ResponseEntity.status(HttpStatus.OK).body("success")
     }
 }
