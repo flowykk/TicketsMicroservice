@@ -20,4 +20,7 @@ class TicketsController(
 
     @GetMapping("get-orders")
     fun orders(@CookieValue jwt: String?) = ticketService.getOrders(jwt)
+
+    @GetMapping("get-order")
+    fun order(@RequestParam orderId: Int, @CookieValue jwt: String?) = ticketService.getOrder(orderId, jwt)
 }

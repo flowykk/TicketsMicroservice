@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service
 
 @Service
 class ValidationService{
-
     @Autowired
     lateinit var regexConfig: RegexConfig
 

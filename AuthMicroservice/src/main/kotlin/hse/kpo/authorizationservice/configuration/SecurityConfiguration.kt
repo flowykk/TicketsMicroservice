@@ -15,7 +15,6 @@ import kotlin.io.encoding.ExperimentalEncodingApi
 class SecurityConfiguration(
     private val userProfileService: UserProfileService
 ) {
-
     @Bean
     fun passwordEncoder(): PasswordEncoder = BCryptPasswordEncoder()
 
