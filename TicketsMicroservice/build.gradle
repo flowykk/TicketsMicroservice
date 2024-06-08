@@ -58,9 +58,3 @@ tasks.withType(KotlinCompile).configureEach {
 test {
     useJUnitPlatform()
 }
-
-jar {
-    manifest {
-        attributes 'Main-Class': 'hse.kpo.authorizationservice.AuthorizationServiceApplication'
-    }
-}
