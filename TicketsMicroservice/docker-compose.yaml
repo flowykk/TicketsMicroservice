@@ -3,7 +3,7 @@ version: "3.7"
 services:
   database:
     image: postgres
-    container_name: tickets
+    container_name: postgres
     command: ["postgres", "-c", "log_statement=all"]
     environment:
       POSTGRES_USER: postgres
@@ -17,3 +17,14 @@ services:
       timeout: 3s
       interval: 10s
       retries: 12
+
+  app:
+    build:
+      context: ..
+    environment:
+      SERVER_PORT: 8081 # Порт на котором будет запускаться приложение.
+      # Именно по нему вы сможете запустить ваше приложение
+    ports:
+      - '8081:8081' # Порты могут быть любые, на ваш вкус
+    depends_on:
+      - database
