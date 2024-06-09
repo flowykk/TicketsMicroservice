@@ -1,8 +1,9 @@
-package hse.kpo.authorizationservice.controller
+package hse.kpo.ticketsservice.controller
 
-import hse.kpo.authorizationservice.dtos.BuyTicketDTO
-import hse.kpo.authorizationservice.dtos.StationDTO
-import hse.kpo.authorizationservice.service.TicketService
+import hse.kpo.ticketsservice.dtos.BuyTicketDTO
+import hse.kpo.ticketsservice.dtos.StationDTO
+
+import hse.kpo.ticketsservice.service.TicketService
 import org.springframework.web.bind.annotation.*
 import kotlin.io.encoding.ExperimentalEncodingApi
 

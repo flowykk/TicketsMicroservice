@@ -1,4 +1,4 @@
-package hse.kpo.authorizationservice.dtos
+package hse.kpo.ticketsservice.dtos
 
 class BuyTicketDTO {
     val from_station = String()

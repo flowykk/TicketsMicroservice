@@ -18,5 +18,7 @@ class Session (
     @Column("expires") @JsonIgnore
     private val expires: Timestamp? = null,
 ) {
-
+    fun getUserId(): Int? = user_id
+    fun getToken(): String = token
+    fun getExpires(): Timestamp? = expires
 }

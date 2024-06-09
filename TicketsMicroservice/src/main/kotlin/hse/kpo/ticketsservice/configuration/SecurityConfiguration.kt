@@ -1,6 +1,5 @@
 package hse.kpo.ticketsservice.configuration
 
-import hse.kpo.ticketsservice.service.UserProfileService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -14,7 +13,6 @@ import kotlin.io.encoding.ExperimentalEncodingApi
 @ExperimentalEncodingApi
 @EnableWebSecurity
 class SecurityConfiguration(
-    private val userProfileService: UserProfileService
 ) {
 
     @Bean
@@ -29,7 +27,6 @@ class SecurityConfiguration(
                     .requestMatchers("/**", "/home", "/login", "/register", "/logout", "/user").permitAll()
                     .anyRequest().authenticated()
             }
-            .userDetailsService(userProfileService)
 
         return http.build()
     }

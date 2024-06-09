@@ -1,12 +1,12 @@
-package hse.kpo.authorizationservice.service
+package hse.kpo.ticketsservice.service
 
-import hse.kpo.authorizationservice.dtos.BuyTicketDTO
-import hse.kpo.authorizationservice.dtos.StationDTO
-import hse.kpo.authorizationservice.models.Order
-import hse.kpo.authorizationservice.models.Station
-import hse.kpo.authorizationservice.repository.OrderRepository
-import hse.kpo.authorizationservice.repository.SessionRepository
-import hse.kpo.authorizationservice.repository.StationRepository
+import hse.kpo.ticketsservice.dtos.BuyTicketDTO
+import hse.kpo.ticketsservice.dtos.StationDTO
+import hse.kpo.ticketsservice.models.Order
+import hse.kpo.ticketsservice.models.Station
+import hse.kpo.ticketsservice.repository.OrderRepository
+import hse.kpo.ticketsservice.repository.SessionRepository
+import hse.kpo.ticketsservice.repository.StationRepository
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
