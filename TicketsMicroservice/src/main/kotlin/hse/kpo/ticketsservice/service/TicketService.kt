@@ -48,7 +48,7 @@ class TicketService(
                 userId = session.getUserId(),
                 from_station_id = fromStationId,
                 to_station_id = toStationId,
-                status = 1,
+                status = listOf(2, 3).random(),
                 created = Timestamp.from(Instant.now())
             )
         )
@@ -87,11 +87,13 @@ class TicketService(
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Unauthenticated")
 
         val session = sessionRepository.findByToken(jwt) ?:
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User's session not found")
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User's session not found")
         if (session.getExpires() == null || session.getExpires()!! < Timestamp.from(Instant.now()))
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User's session got expired")
 
         val orders = orderRepository.findByUserId(session.getUserId())
+        if (orders.isEmpty())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("You have no orders yet")
 
         return ResponseEntity.status(HttpStatus.OK).body(orders)
     }
