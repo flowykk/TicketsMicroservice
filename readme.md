@@ -19,6 +19,8 @@
 #### AuthMicroservice - User, Session
 
 <img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/ebc9bcce-3080-41ca-a4b9-41d21d6d6221" width="400"> 
+
+
 <img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/44b64984-2446-4c36-8f78-49ffbe8431f8" width="400"> 
 
 ## Доступные запросы для микросервиса Авторизации
