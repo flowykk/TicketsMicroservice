@@ -10,30 +10,6 @@
 - [Скрипты создания таблиц и заполнения БД]()
 - [Сборка docker-compose]()
 
-## Тесты 
-
-Для проверки функционирования **Unit-ов** были написаны **Unit-тесты** для каждого из микросервисов с использованием **JUnit**. Тесты были написаны для сущностей `User`, `Session`, `Order`, `Station`.
-
-### AuthMicroservice - User, Session
-
-#### Результаты запуска
-
-<img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/ebc9bcce-3080-41ca-a4b9-41d21d6d6221" width="400"> 
-
-#### Покрытие сущностей
-
-<img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/44b64984-2446-4c36-8f78-49ffbe8431f8" width="400"> 
-
-### TicketsMicroservice - Order, Station
-
-#### Результаты запуска
-
-<img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/dc9e728b-94a6-42db-87d9-64b3aa75a4c7" width="400"> 
-
-#### Покрытие сущностей
-
-<img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/6ad9cf39-71eb-41a7-b4ad-cae341aa3f86" width="400"> 
-
 ## Доступные запросы для микросервиса Авторизации
 
 **!!!** Данные запросы работают для порта `8081`
@@ -263,3 +239,29 @@ CMD ["java","-jar","TicketsMicroservice.jar"]
 ```
 
 Для связи двух микросервисов друг с другом используеся файл [docker-compose.yaml](docker-compose.yaml), в котором заданы используемые для микросервисов порты (**8081** для AuthMicroservice и **8082** для TicketsMicroservice), параметры БД (PostgreSQL), а также связи между микросервисами.
+
+## Тесты 
+
+Для проверки функционирования **Unit-ов** были написаны **Unit-тесты** для каждого из микросервисов с использованием **JUnit**.
+
+Тесты были написаны для проверки работоспособности сущностей `User`, `Session`, `Order`, `Station`.
+
+### AuthMicroservice - User, Session
+
+#### Результаты запуска
+
+<img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/ebc9bcce-3080-41ca-a4b9-41d21d6d6221" width="400"> 
+
+#### Покрытие сущностей
+
+<img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/44b64984-2446-4c36-8f78-49ffbe8431f8" width="400"> 
+
+### TicketsMicroservice - Order, Station
+
+#### Результаты запуска
+
+<img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/dc9e728b-94a6-42db-87d9-64b3aa75a4c7" width="400"> 
+
+#### Покрытие сущностей
+
+<img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/6ad9cf39-71eb-41a7-b4ad-cae341aa3f86" width="400"> 
