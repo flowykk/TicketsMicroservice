@@ -14,13 +14,13 @@
 
 Для проверки функционирования **Unit-ов** были написаны **Unit-тесты** для каждого из микросервисов с использованием **JUnit**. Тесты были написаны для сущностей `User`, `Session`, `Order`, `Station`.
 
-### Результаты запуска и покрытие сущностей тестами:
+### AuthMicroservice - User, Session
 
-#### AuthMicroservice - User, Session
+#### Результаты запуска
 
 <img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/ebc9bcce-3080-41ca-a4b9-41d21d6d6221" width="400"> 
 
-
+#### Покрытие сущностей
 
 <img src="https://github.com/flowykk/TicketsMicroservice/assets/71427624/44b64984-2446-4c36-8f78-49ffbe8431f8" width="400"> 
 
