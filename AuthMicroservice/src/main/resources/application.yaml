@@ -11,3 +11,6 @@ spring:
     password: postgres
   liquibase:
     change-log: classpath:/db/changelog/db.master.yaml
+
+server:
+  port: 8090
