@@ -48,7 +48,7 @@ class TicketService(
                 userId = session.getUserId(),
                 from_station_id = fromStationId,
                 to_station_id = toStationId,
-                status = 1,
+                status = listOf(2, 3).random(),
                 created = Timestamp.from(Instant.now())
             )
         )
