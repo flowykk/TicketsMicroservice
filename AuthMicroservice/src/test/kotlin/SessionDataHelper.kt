@@ -1,4 +1,4 @@
-import hse.kpo.ticketsservice.models.Session
+import hse.kpo.authorizationservice.models.Session
 
 class SessionDataHelper {
     private val dataHelper = DataHelper()

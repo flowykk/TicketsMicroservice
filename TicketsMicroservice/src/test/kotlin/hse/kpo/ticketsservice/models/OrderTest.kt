@@ -1,10 +1,8 @@
 package hse.kpo.ticketsservice.models
 
 import OrderDataHelper
-import SessionDataHelper
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
 import java.sql.Timestamp
 import java.time.Instant
 
