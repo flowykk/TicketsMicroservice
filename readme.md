@@ -10,32 +10,6 @@
 - [Скрипты создания таблиц и заполнения БД]()
 - [Сборка docker-compose]()
 
-## Описание архитектуры
-
-Для приложения используется микросервисная архитектура. Было реализовано 2 микросервиса: `AuthMicroservice` и `TicketsMicroservice`.
-
-В каждом из них написаны следующие `Dockerfile-ы`:
-
-[AuthMicroservice/Dockerfile](AuthMicroservice/Dockerfile)
-```Dockerfile
-FROM openjdk:21
-
-COPY build/libs/AuthMicroservice-0.0.1-SNAPSHOT.jar AuthMicroservice.jar
-
-CMD ["java","-jar","AuthMicroservice.jar"]
-```
-
-[TicketsMicroservice/Dockerfile](TicketsMicroservice/Dockerfile)
-```Dockerfile
-FROM openjdk:21
-
-COPY build/libs/TicketsMicroservice-0.0.1-SNAPSHOT.jar TicketsMicroservice.jar
-
-CMD ["java","-jar","TicketsMicroservice.jar"]
-```
-
-Для связи двух микросервисов друг с другом используеся файл [docker-compose.yaml](docker-compose.yaml), в котором заданы используемые для микросервисов порты (**8081** для AuthMicroservice и **8082** для TicketsMicroservice), параметры БД (Postgres), а также связи между микросервисами.
-
 ## Доступные запросы для микросервиса Авторизации
 
 **!!!** Данные запросы работают для порта `8081`
@@ -239,3 +213,29 @@ Responses:
     }
 ]
 ```
+
+## Описание архитектуры
+
+Для приложения используется микросервисная архитектура. Было реализовано 2 микросервиса: `AuthMicroservice` и `TicketsMicroservice`.
+
+В каждом из них написаны следующие `Dockerfile-ы`:
+
+[AuthMicroservice/Dockerfile](AuthMicroservice/Dockerfile)
+```Dockerfile
+FROM openjdk:21
+
+COPY build/libs/AuthMicroservice-0.0.1-SNAPSHOT.jar AuthMicroservice.jar
+
+CMD ["java","-jar","AuthMicroservice.jar"]
+```
+
+[TicketsMicroservice/Dockerfile](TicketsMicroservice/Dockerfile)
+```Dockerfile
+FROM openjdk:21
+
+COPY build/libs/TicketsMicroservice-0.0.1-SNAPSHOT.jar TicketsMicroservice.jar
+
+CMD ["java","-jar","TicketsMicroservice.jar"]
+```
+
+Для связи двух микросервисов друг с другом используеся файл [docker-compose.yaml](docker-compose.yaml), в котором заданы используемые для микросервисов порты (**8081** для AuthMicroservice и **8082** для TicketsMicroservice), параметры БД (PostgreSQL), а также связи между микросервисами.
