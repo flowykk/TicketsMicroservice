@@ -8,9 +8,16 @@
 - [Скрипты создания таблиц и заполнения БД](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86-%D0%B8-%D0%B7%D0%B0%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B1%D0%B4)
 - [Коллекция Postman](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%BA%D0%BE%D0%BB%D0%BB%D0%B5%D0%BA%D1%86%D0%B8%D1%8F-postman)
 - [Доступные запросы для микросервиса Авторизации](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D0%B5-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0-%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8)
-   - 123
-   - 123
+   - [Регистрация](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F)
+   - [Авторизация](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F)
+   - [Получение информации о пользователе](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8-%D0%BE-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5)
+   - [Выход из аккаунта](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%B2%D1%8B%D1%85%D0%BE%D0%B4-%D0%B8%D0%B7-%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%B0)
 - [Доступные запросы для микросервиса Покупки билетов](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D0%B5-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0-%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B8-%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D0%BE%D0%B2)
+   - [Покупка билета]()
+   - [Просмотр конкретного заказа]()
+   - [Добавление станции]()
+   - [Просмотр всех заказов пользователя]()
+   - [Просмотр всех станций]()
 - [Описание архитектуры](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D1%8B)
 - [Тесты](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D1%82%D0%B5%D1%81%D1%82%D1%8B)
 
@@ -132,7 +139,7 @@ Responses:
 }
 ```
 
-### Выход из аккаунта
+### Выход из аккаунта (Дополнительный функционал)
 
 URL: **POST** `../log-out`
 
@@ -145,24 +152,6 @@ Responses:
 ## Доступные запросы для микросервиса Покупки билетов
 
 **!!!** Данные запросы работают для порта `8082`
-
-### Добавление новой станции
-
-URL: **POST** `../tickets/add-station`
-
-Body:
-```json
-{
-    "station": "station_name"
-}
-```
-
-Responses:
-
-- `404 Bad Request`: Station's name can't be empty
-- `404 Bad Request`: Station's name must contain minimum 4 characters
-- `404 Bad Request`: Can't add duplicated station
-- `200 Ok`: Station added successfully
 
 ### Покупка билета
 
@@ -212,6 +201,24 @@ Responses:
     "fromStationId": 1
 }
 ```
+
+### Добавление новой станции (Дополнительный функционал)
+
+URL: **POST** `../tickets/add-station`
+
+Body:
+```json
+{
+    "station": "station_name"
+}
+```
+
+Responses:
+
+- `404 Bad Request`: Station's name can't be empty
+- `404 Bad Request`: Station's name must contain minimum 4 characters
+- `404 Bad Request`: Can't add duplicated station
+- `200 Ok`: Station added successfully
 
 ### Получение информации о всех заказах пользователя (Дополнительный функционал)
 
