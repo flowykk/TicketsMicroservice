@@ -35,6 +35,8 @@
 
    ![Снимок экрана 2024-06-09 в 19 25 40](https://github.com/flowykk/TicketsMicroservice/assets/71427624/d100dcb4-42e0-4ce1-ad34-90b62390e7fa)
 
+   ![Снимок экрана 2024-06-09 в 19 26 11](https://github.com/flowykk/TicketsMicroservice/assets/71427624/7fb08e6c-52c8-4155-86c9-9ad960bdb98d)
+
    ![Снимок экрана 2024-06-09 в 19 25 27](https://github.com/flowykk/TicketsMicroservice/assets/71427624/4a7bf8e6-81af-445c-afba-42c2ae47b2b6)
 
    ![Снимок экрана 2024-06-09 в 19 24 48](https://github.com/flowykk/TicketsMicroservice/assets/71427624/56afb65a-b8d6-4575-9951-f371036ccee9)
