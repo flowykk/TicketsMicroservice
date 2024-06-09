@@ -12,13 +12,13 @@ class Session (
     @Column("id")
     val id: Int? = null,
     @Column("user_id")
-    private val user_id: Int? = null,
+    private val userId: Int? = null,
     @Column("token")
     private val token: String,
     @Column("expires") @JsonIgnore
     private val expires: Timestamp? = null,
 ) {
-    fun getUserId(): Int? = user_id
+    fun getUserId(): Int? = userId
     fun getToken(): String = token
     fun getExpires(): Timestamp? = expires
 }

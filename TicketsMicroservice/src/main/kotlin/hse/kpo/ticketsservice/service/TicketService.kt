@@ -36,9 +36,9 @@ class TicketService(
         if (session.getExpires() == null || session.getExpires()!! < Timestamp.from(Instant.now()))
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User's session got expired")
 
-        val fromStationId = stationRepository.findByStation(body.from_station)?.id ?:
+        val fromStationId = stationRepository.findByStation(body.fromStation)?.id ?:
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("FromStation not found")
-        val toStationId = stationRepository.findByStation(body.to_station)?.id ?:
+        val toStationId = stationRepository.findByStation(body.toStation)?.id ?:
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("ToStation not found")
         if (toStationId == fromStationId)
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Stations can't be same")
@@ -74,6 +74,11 @@ class TicketService(
         )
 
         return ResponseEntity.status(HttpStatus.OK).body("Station added successfully")
+    }
+
+    @Transactional
+    fun getStations() : ResponseEntity<Any> {
+        return ResponseEntity.status(HttpStatus.OK).body(stationRepository.findAll())
     }
 
     @Transactional

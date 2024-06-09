@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository
 
 interface StationRepository : CrudRepository<Station, Int> {
     fun findByStation(station: String) : Station?
+    override fun findAll() : List<Station>
 }

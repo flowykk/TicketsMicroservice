@@ -19,6 +19,9 @@ class TicketsController(
     @PostMapping("add-station")
     fun addStation(@RequestBody body: StationDTO) = ticketService.addStation(body)
 
+    @GetMapping("get-stations")
+    fun getStations() = ticketService.getStations()
+
     @GetMapping("get-orders")
     fun orders(@CookieValue jwt: String?) = ticketService.getOrders(jwt)
 

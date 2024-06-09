@@ -11,6 +11,5 @@ class Station (
     @Column("station")
     private val station: String
 ) {
-
-
+    fun getStation(): String = station
 }
