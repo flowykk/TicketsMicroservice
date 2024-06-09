@@ -5,10 +5,20 @@
 Данный документ содержит следующие разделы:
 - [Доступные запросы для микросервиса Авторизации](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D0%B5-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0-%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8)
 - [Доступные запросы для микросервиса Покупки билетов](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D0%B5-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0-%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B8-%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D0%BE%D0%B2)
-- [Описание архитектуры]()
+- [Описание архитектуры](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D1%8B)
 - [Тесты]()
 - [Скрипты создания таблиц и заполнения БД]()
 - [Сборка docker-compose]()
+
+## Тесты 
+
+Для проверки функционирования **Unit-ов** были написаны **Unit-тесты** для каждого из микросервисов с использованием **JUnit**. Тесты были написаны для сущностей `User`, `Session`, `Order`, `Station`.
+
+### Результаты запуска и покрытие сущностей тестами:
+
+#### AuthMicroservice - User, Session
+
+![Снимок экрана 2024-06-09 в 18 44 44](https://github.com/flowykk/TicketsMicroservice/assets/71427624/ebc9bcce-3080-41ca-a4b9-41d21d6d6221)
 
 ## Доступные запросы для микросервиса Авторизации
 
