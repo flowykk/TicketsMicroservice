@@ -1,4 +1,4 @@
-package hse.kpo.authorizationservice.models
+package hse.kpo.ticketsservice.models
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
@@ -11,6 +11,5 @@ class Station (
     @Column("station")
     private val station: String
 ) {
-
-
+    fun getStation(): String = station
 }

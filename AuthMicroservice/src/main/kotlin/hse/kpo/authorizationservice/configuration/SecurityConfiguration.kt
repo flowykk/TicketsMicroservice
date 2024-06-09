@@ -1,7 +1,5 @@
 package hse.kpo.authorizationservice.configuration
 
-import hse.kpo.authorizationservice.service.UserProfileService
-import hse.kpo.authorizationservice.service.UserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -12,9 +10,7 @@ import kotlin.io.encoding.ExperimentalEncodingApi
 
 @Configuration
 @ExperimentalEncodingApi
-class SecurityConfiguration(
-    private val userProfileService: UserProfileService
-) {
+class SecurityConfiguration {
     @Bean
     fun passwordEncoder(): PasswordEncoder = BCryptPasswordEncoder()
 
@@ -27,7 +23,6 @@ class SecurityConfiguration(
                     .requestMatchers("/**", "/home", "/login", "/register", "/logout", "/user").permitAll()
                     .anyRequest().authenticated()
             }
-            .userDetailsService(userProfileService)
 
         return http.build()
     }

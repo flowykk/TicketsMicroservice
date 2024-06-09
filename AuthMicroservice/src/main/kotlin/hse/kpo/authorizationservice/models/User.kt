@@ -21,38 +21,17 @@ class User(
     @Column("password") @JsonIgnore
     private val password: String,
     @Column("created")
-    val created: Timestamp? = null
-) : UserDetails {
-
+    private val created: Timestamp? = null
+) {
     fun comparePassword(password: String): Boolean {
         return BCryptPasswordEncoder().matches(password, this.password);
     }
 
-    override fun getAuthorities(): Collection<GrantedAuthority>  = mutableListOf()
+    fun getPassword(): String = password
 
-    override fun getPassword(): String = password
-
-    override fun getUsername(): String = nickname
+    fun getUsername(): String = nickname
 
     fun getEmail(): String = email
 
-    override fun isAccountNonExpired(): Boolean {
-        // Можно добавить логику для проверки срока действия аккаунта
-        return true
-    }
-
-    override fun isAccountNonLocked(): Boolean {
-        // Можно добавить логику для проверки блокировки аккаунта
-        return true
-    }
-
-    override fun isCredentialsNonExpired(): Boolean {
-        // Можно добавить логику для проверки срока действия учетных данных
-        return true
-    }
-
-    override fun isEnabled(): Boolean {
-        // Можно добавить логику для проверки активации аккаунта
-        return true
-    }
+    fun getCreated(): Timestamp? = created
 }
