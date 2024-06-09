@@ -6,6 +6,7 @@
 
 - [Сборка сервисов и docker-compose](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%BE%D0%B2-%D0%B8-docker-compose)
 - [Скрипты создания таблиц и заполнения БД](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86-%D0%B8-%D0%B7%D0%B0%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B1%D0%B4)
+- [Коллекция Postman](Коллекция Postman)
 - [Доступные запросы для микросервиса Авторизации](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D0%B5-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0-%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8)
 - [Доступные запросы для микросервиса Покупки билетов](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D0%B5-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0-%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B8-%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D0%BE%D0%B2)
 - [Описание архитектуры](https://github.com/flowykk/TicketsMicroservice/blob/main/readme.md#%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D1%8B)
@@ -59,6 +60,10 @@
 Для заполнения таблиц БД было принято решение использовать лишь скрипт для заполнения таблицы `station`, так как остальные таблицы заполняются в соответствии с действиями пользователя, касающимися процесса покупки билетов. Для заполнения таблицы `station` можно использовать скрипт, приведённый в файле [Data/stationsScript.txt](Data/stationsScript.txt), который добавляет в таблицу 50 станций различных российских вокзалов.
 
 **P.S.** Запустить любой из скриптов можно открыв **PostgreSQL Console** прямо в IDE.
+
+## Коллекция Postman
+
+Подготовленную **Postman-Коллекцию** можно у себя, импортировав себе в Postman файл 
 
 ## Доступные запросы для микросервиса Авторизации
 
