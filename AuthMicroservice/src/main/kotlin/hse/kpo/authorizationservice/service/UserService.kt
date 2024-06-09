@@ -19,12 +19,8 @@ import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import java.nio.charset.StandardCharsets
-import java.security.Key
 import java.sql.Timestamp
 import java.time.Instant
-import java.util.*
 import kotlin.io.encoding.ExperimentalEncodingApi
 
 @Service
@@ -85,7 +81,7 @@ class UserService(
 
         sessionRepository.save(
             Session(
-                user_id = user.id,
+                userId = user.id,
                 token = jwt,
                 expires = expires
             )

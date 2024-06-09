@@ -1,4 +1,4 @@
-package hse.kpo.ticketsservice.models
+package hse.kpo.authorizationservice.models
 
 import SessionDataHelper
 import org.junit.jupiter.api.Test
