@@ -1,6 +1,18 @@
-# ДЗ4 Сервис по покупке билетов
+# ДЗ4 Система заказов на покупку билетов
+
+## Содержание документации
+
+Данный документ содержит следующие разделы:
+- [Доступные запросы для микросервиса Авторизации]()
+- [Доступные запросы для микросервиса Авторизации]()
+- [Описание архитектуры]
+- [Тесты]
+- [Скрипты создания таблиц и заполнения БД]
+- [Сборка docker-compose]
 
 ## Доступные запросы для микросервиса Авторизации
+
+**!!!** Данные запросы работают для порта `8081`
 
 ### Регистрация
 
@@ -57,16 +69,13 @@ Responses:
     "id": 1,
     "email": "ex@ex.com",
     "created": "2024-12-12T12:12:12.000+00:00",
-    "enabled": true,
-    "credentialsNonExpired": true,
-    "authorities": [],
-    "username": "name",
-    "accountNonExpired": true,
-    "accountNonLocked": true
+    "username": "name"
 }
 ```
 
 ## Доступные запросы для микросервиса Покупки билетов
+
+**!!!** Данные запросы работают для порта `8082`
 
 ### Добавление новой станции
 
@@ -93,8 +102,8 @@ URL: **POST** `../tickets/add-station`
 Body:
 ```json
 {
-  "from_station": "station1_name",
-  "to_station": "station2_name"
+    "from_station": "station1_name",
+    "to_station": "station2_name"
 }
 ```
 
@@ -151,21 +160,56 @@ Responses:
 - `200 Ok`:
 ```json
 [
-  {
-    "id": 1,
-    "userId": 1,
-    "status": 1,
-    "created": "2024-12-12T12:12:12.000+00:00",
-    "toStationId": 2,
-    "fromStationId": 1
-  },
-  {
-    "id": 2,
-    "userId": 1,
-    "status": 1,
-    "created": "2024-13-12T12:12:12.000+00:00",
-    "toStationId": 1,
-    "fromStationId": 2
-  }
+    {
+        "id": 1,
+        "userId": 1,
+        "status": 1,
+        "created": "2024-12-12T12:12:12.000+00:00",
+        "toStationId": 2,
+        "fromStationId": 1
+    },
+    {
+        "id": 2,
+        "userId": 1,
+        "status": 1,
+        "created": "2024-13-12T12:12:12.000+00:00",
+        "toStationId": 1,
+        "fromStationId": 2
+    },
+    {
+        ...
+    }
+]
+```
+
+### Получение информации о всех доступных станциях
+
+URL: **GET** `../tickets/get-stations
+
+Body: `-`
+
+Responses:
+
+- `404 Bad Request`: Unauthenticated
+- `404 Bad Request`: User's session not found
+- `404 Bad Request`: User's session got expired
+- `404 Bad Request`: Order not found
+- `404 Bad Request`: You can't view someone's order
+
+
+- `200 Ok`:
+```json
+[
+    {
+        "id": 1,
+        "station": "station1"
+    },
+    {
+        "id": 2,
+        "station": "station2"
+    },
+    {
+        ...
+    }
 ]
 ```
