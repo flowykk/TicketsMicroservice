@@ -7,7 +7,7 @@ import org.springframework.data.relational.core.mapping.Table
 import java.sql.Timestamp
 
 @Table("sessions")
-class Session1 (
+class Session (
     @Id
     @Column("id")
     val id: Int? = null,

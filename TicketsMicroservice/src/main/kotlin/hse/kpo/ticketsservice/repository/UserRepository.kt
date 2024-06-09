@@ -1,6 +1,6 @@
-package hse.kpo.authorizationservice.repository
+package hse.kpo.ticketsservice.repository
 
-import hse.kpo.authorizationservice.models.User
+import hse.kpo.ticketsservice.models.User
 import org.springframework.data.repository.CrudRepository
 
 interface UserRepository : CrudRepository<User, Int> {

@@ -1,7 +1,5 @@
-FROM amazoncorretto:21-alpine3.19
+FROM openjdk:21
 
-WORKDIR /app
+COPY build/libs/TicketsMicroservice-0.0.1-SNAPSHOT.jar TicketsMicroservice.jar
 
-ADD build/libs/AuthMicroservice-0.0.1-SNAPSHOT-all.jar app.jar
-
-CMD ["java", "-jar", "app.jar"]
+CMD ["java","-jar","TicketsMicroservice.jar"]
