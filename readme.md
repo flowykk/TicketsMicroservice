@@ -15,9 +15,20 @@
 1. Для начала в случае необходимости необходимо перейти по-отдельности в директории, где находится каждый из микросервисов и собрать **.jar** файлы. Это делается следующим образом:
 
    Для `AuthMicroservice`:
-   ```cmd
+   ```bash
    cd AuthMicroservice
    ./gradlew bootJar
+   ```
+
+   Для `TicketsMicroservice`:
+   ```bash
+   cd TicketsMicroservice
+   ./gradlew bootJar
+   ```
+
+   Если команда не запускается и появляется ошибка вида `zsh: permission denied: ./gradlew`, достаточно добавить `bash` в начало строки:
+   ```bash
+   bash ./gradlew bootJar
    ```
 
 ## Доступные запросы для микросервиса Авторизации
