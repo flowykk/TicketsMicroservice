@@ -33,6 +33,10 @@
 
    В рехультате в папках [AuthMicroservice/build/libs](AuthMicroservice/build/libs) и [TicketsMicroservice/build/libs](TicketsMicroservice/build/libs) должны появиться такие файлы:
 
+   ![Снимок экрана 2024-06-09 в 19 25 40](https://github.com/flowykk/TicketsMicroservice/assets/71427624/d100dcb4-42e0-4ce1-ad34-90b62390e7fa)
+
+   ![Снимок экрана 2024-06-09 в 19 25 27](https://github.com/flowykk/TicketsMicroservice/assets/71427624/4a7bf8e6-81af-445c-afba-42c2ae47b2b6)
+
    ![Снимок экрана 2024-06-09 в 19 24 48](https://github.com/flowykk/TicketsMicroservice/assets/71427624/56afb65a-b8d6-4575-9951-f371036ccee9)
 
    ![Снимок экрана 2024-06-09 в 19 24 32](https://github.com/flowykk/TicketsMicroservice/assets/71427624/c7ea110d-fb39-4ea7-87aa-d2586824e1a6)
