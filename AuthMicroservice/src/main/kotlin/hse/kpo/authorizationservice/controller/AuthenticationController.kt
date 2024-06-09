@@ -29,6 +29,6 @@ class AuthenticationController(
     @GetMapping("user")
     fun user(@CookieValue("jwt") jwt: String?) = userService.getUser(jwt)
 
-    @PostMapping("logout")
+    @PostMapping("log-out")
     fun logout(response: HttpServletResponse) = userService.userLogout(response)
 }

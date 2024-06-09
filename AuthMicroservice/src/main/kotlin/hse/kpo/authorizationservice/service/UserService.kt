@@ -100,13 +100,13 @@ class UserService(
     }
 
     @Transactional
-    fun userLogout(response: HttpServletResponse) : ResponseEntity<Any> {
+    fun userLogout(response: HttpServletResponse) : HttpEntity<String> {
         val cookie = Cookie("jwt", "")
         cookie.maxAge = 0
 
         response.addCookie(cookie)
 
-        return ResponseEntity.status(HttpStatus.OK).body("success")
+        return ResponseEntity.status(HttpStatus.OK).body("Successful logout")
     }
 
     fun fetchUserData(jwt: String?) : User? {
