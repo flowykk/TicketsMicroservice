@@ -130,6 +130,16 @@ Responses:
 }
 ```
 
+### Выход из аккаунта
+
+URL: **POST** `../log-out`
+
+Body: `-`
+
+Responses:
+
+- `200 Ok`: Successful logout
+
 ## Доступные запросы для микросервиса Покупки билетов
 
 **!!!** Данные запросы работают для порта `8082`
@@ -212,6 +222,7 @@ Responses:
 - `404 Bad Request`: Unauthenticated
 - `404 Bad Request`: User's session not found
 - `404 Bad Request`: User's session got expired
+- `404 Bad Request`: You have no orders yet
 
 
 - `200 Ok`:
