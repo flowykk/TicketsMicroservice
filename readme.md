@@ -63,7 +63,9 @@
 
 ## Коллекция Postman
 
-Подготовленную **Postman-Коллекцию** можно у себя, импортировав себе в Postman файл 
+Подготовленную **Postman-Коллекцию** можно у себя, импортировав себе в Postman [файл](kpo-authTicketsService.postman_collection.json).
+
+ИЛИ ЖЕ можно перейти по данной [ссылке](https://web.postman.co/workspace/kpo-authTicketsService~23094e89-c8a0-49e8-98a6-646439bc6267/request/13405344-2bb67e0a-996e-4d0f-8dbf-5d6f4de92c37), заранее авторизовавшись на сайте [postman.com](https://www.postman.com/).
 
 ## Доступные запросы для микросервиса Авторизации
 
