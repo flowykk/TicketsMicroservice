@@ -1,4 +1,3 @@
-/Users/danilarahmanov/PycharmProjects/pythonProject1/.venv/bin/python /Users/danilarahmanov/PycharmProjects/pythonProject1/main.py 
 INSERT INTO station(station) VALUES ('Savelovsky-Station');
 INSERT INTO station(station) VALUES ('Kazan-Station');
 INSERT INTO station(station) VALUES ('Chelyabinsk-Station');
@@ -49,5 +48,3 @@ INSERT INTO station(station) VALUES ('Tambov-Station');
 INSERT INTO station(station) VALUES ('Lipetsk-Station');
 INSERT INTO station(station) VALUES ('Voronezh-Station');
 INSERT INTO station(station) VALUES ('Belgorod-Statio');
-
-Process finished with exit code 0
